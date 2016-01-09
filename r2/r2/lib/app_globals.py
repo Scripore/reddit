@@ -474,8 +474,11 @@ class Globals(object):
         if not name.startswith('_') and name in self.config:
             return self.config[name]
         else:
-            pdb.set_trace()
-            raise AttributeError
+            if name == 'mcrouter_addr':
+                print "blah"
+            else:
+                pdb.set_trace()
+                raise AttributeError
 
     def setup(self):
         self.env = 'unit_test' if 'test' in sys.argv[0] else ''
