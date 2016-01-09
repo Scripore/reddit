@@ -471,10 +471,10 @@ class Globals(object):
         self.startup_timer.intermediate("init")
 
     def __getattr__(self, name):
-        pdb.set_trace()
         if not name.startswith('_') and name in self.config:
             return self.config[name]
         else:
+            pdb.set_trace()
             raise AttributeError
 
     def setup(self):
