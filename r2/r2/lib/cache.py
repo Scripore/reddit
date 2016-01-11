@@ -19,7 +19,7 @@
 # All portions of the code written by reddit are Copyright (c) 2006-2015 reddit
 # Inc. All Rights Reserved.
 ###############################################################################
-
+import pdb
 import sys
 from threading import local
 from hashlib import md5
@@ -146,6 +146,7 @@ class CMemcache(CacheUtils):
         self.validators = validators or []
 
         for x in xrange(num_clients):
+            pdb.set_trace()
             client = pylibmc.Client(servers, binary=binary)
             behaviors = {
                 'no_block': no_block, # use async I/O
